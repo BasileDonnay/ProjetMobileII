@@ -21,11 +21,12 @@
 }*/
 
 
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { styles } from './styles'; // Import the styles
+import {LevelScreen} from './levelScreen';
 
 const Stack = createStackNavigator();
 
@@ -62,14 +63,14 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function LevelScreen({ route, navigation }) {
+/*function LevelScreen({ route, navigation }) {
   const { level } = route.params;
   const goBackToHome = () => {
     navigation.goBack();
-  };
-
+  }
   // Dynamically import the code for the selected level
   const levelCode = require(`./level_data/level${level}.js`).default;
+
 
   const [code, setCode] = useState(levelCode);
 
@@ -90,5 +91,27 @@ function LevelScreen({ route, navigation }) {
 function CustomButton({ title, onPress }) {
   return (
     <Button title={title} onPress={onPress} />
+  );
+}*/
+
+// App.js
+
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import HomeScreen from './HomeScreen'; // Import your HomeScreen component
+import Level1 from './level_data/level1'; // Import your Level1 component
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Level1" component={Level1} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
