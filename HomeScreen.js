@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, Button } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {styles} from './styles/Styles'; // Import the styles
 import CustomButton from './components/CustomButton';
@@ -27,9 +27,5 @@ function HomeScreen() {
   </View>
   );
 }
-
-/*function CustomButton({ title, onPress }) {
-  return <Button title={title} onPress={onPress} />;
-}*/
 
 export default HomeScreen;

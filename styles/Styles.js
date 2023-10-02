@@ -25,11 +25,13 @@ export const styles = StyleSheet.create({
         marginVertical: 10,
       },
       codeEditor: {
-        width: '100%',
-        height: 200,
+        width: '50%',
+        height: 500,
         borderWidth: 1,
         borderColor: '#ccc',
         padding: 10,
         fontSize: 16,
+        backgroundColor: '#282c34',
+        color: 'white',
       },
 });
