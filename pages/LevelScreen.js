@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import reactJsxParser from 'html-react-parser';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { styles } from '../styles/Styles'; // Import the styles
 import CustomButton from '../components/CustomButton';
@@ -58,6 +59,9 @@ function LevelScreen({ navigation }) {
         value={javaCode}
         onChangeText={(text) => setJavaCode(text)}
       />
+      <SyntaxHighlighter language="java">
+        {javaCode}
+      </SyntaxHighlighter>
       <CustomButton title="Execute Java Code" onPress={executeJavaCode} />
       <CustomButton title="Go Back" onPress={goBackToHome} />
       <Text style={{ marginTop: 10 }}>Output:</Text>
