@@ -1,3 +1,4 @@
+
 public class Ex1Code {
     public static int code(String data){
         int res = 0;

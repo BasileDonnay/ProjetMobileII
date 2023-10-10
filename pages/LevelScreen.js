@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { useRoute } from '@react-navigation/native';
+import reactJsxParser from 'html-react-parser';
+
 import { styles } from '../styles/Styles'; // Import the styles
 import CustomButton from '../components/CustomButton';
 import levelInstructions from '../data/levels.json'; // Import the JSON file
@@ -8,6 +10,10 @@ import levelInstructions from '../data/levels.json'; // Import the JSON file
 function LevelScreen({ navigation }) {
   const [level, setLevel] = useState('');
   const [instruction, setInstruction] = useState('');
+  const [javaCode, setJavaCode] = useState(''); // State variable to store the Java code
+  const [output, setOutput] = useState(''); // State variable to store the output of the Java code
+
+  const reactOutput = new reactJsxParser(output);
 
   const route = useRoute();
 
@@ -16,17 +22,10 @@ function LevelScreen({ navigation }) {
       const currentLevel = route?.params?.level;
       setLevel(currentLevel);
 
-      // Retrieve instruction for the current level from the JSON file
-      const currentInstruction = levelInstructions[currentLevel];
+      const currentInstruction = levelInstructions[currentLevel]; // Retrieve instruction for the current level from the JSON file
       setInstruction(currentInstruction);
     }
   }, [route]);
-
-  // State variable to store the Java code
-  const [javaCode, setJavaCode] = useState('');
-
-  // State variable to store the output of the Java code
-  const [output, setOutput] = useState('');
 
   const goBackToHome = () => {
     navigation.goBack();
@@ -62,7 +61,7 @@ function LevelScreen({ navigation }) {
       <CustomButton title="Execute Java Code" onPress={executeJavaCode} />
       <CustomButton title="Go Back" onPress={goBackToHome} />
       <Text style={{ marginTop: 10 }}>Output:</Text>
-      <Text>{output}</Text>
+      <Text>{reactOutput}</Text>
     </View>
   );
 }

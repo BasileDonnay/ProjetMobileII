@@ -1,6 +1,7 @@
+
 public class Ex1 {
     public static void main(String[] args) {
-        System.out.println("TESTS<br>");
+        System.out.println("TESTS");
 
         testStudentResult("salut", "abba");
 
@@ -45,7 +46,7 @@ public class Ex1 {
                 System.out.println("<span style=\"color: #ff0000\">pas correct...<br>");
                 System.out.println("La réponse attendue : " + solution + "</span>");
             }
-            System.out.println("<br>");
+            System.out.println("");
         }
     }
 }

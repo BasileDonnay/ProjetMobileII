@@ -1,5 +1,5 @@
 {
-    "1": "Instructions for Level 1",
+    "1": "calcule le nombre de lettres 'a' dans un mot. \nle mot est donné par le string 'data' et le résultat doit être donné dans 'res'.\nExemple :\n    data = \"salut\";\n    res = 1;", 
     "2": "Instructions for Level 2",
     "3": "Instructions for Level 3"
-  }  
+}  
