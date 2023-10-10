@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import { styles } from '../styles/Styles'; // Import the styles
 import CustomButton from '../components/CustomButton';
 
-function LevelScreen() {
-  const navigation = useNavigation();
+function LevelScreen({ navigation }) {
+  const [level, setLevel] = useState('');
+
+  const route = useRoute();
+
+  useEffect(() => {
+      if(route?.params?.level) {
+          setLevel(route?.params?.level)
+      }
+  },[])
 
   // State variable to store the Java code
   const [javaCode, setJavaCode] = useState('');
@@ -36,17 +44,16 @@ function LevelScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Level 1</Text>
+      <Text style={styles.header}>Level {level}</Text>
       <TextInput
         multiline
         style={styles.codeEditor}
         value={javaCode}
-        onChangeText={(text) => setJavaCode(text)}  
+        onChangeText={(text) => setJavaCode(text)}
       />
       <CustomButton title="Execute Java Code" onPress={executeJavaCode} />
       <CustomButton title="Go Back" onPress={goBackToHome} />
       <Text style={{ marginTop: 10 }}>Output:</Text>
-      
       <Text>{output}</Text>
     </View>
   );

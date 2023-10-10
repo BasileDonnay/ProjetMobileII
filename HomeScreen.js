@@ -11,21 +11,20 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
-    <Text style={styles.header}>Welcome to BaseCode</Text>
-    <ScrollView style={styles.scrollView}>
-      <View style={styles.row}>
-        {levels.map((level) => (
-          <View key={level} style={styles.buttonContainer}>
-            <CustomButton
-              title={`Level ${level}`}
-              //onPress={() => navigation.navigate(`Level${level}`)}
-              onPress={() => navigation.navigate('Level', { level })}
-            />
-          </View>
-        ))}
-      </View>
-    </ScrollView>
-  </View>
+      <Text style={styles.header}>Welcome to BaseCode</Text>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.row}>
+          {levels.map((level) => (
+            <View key={level} style={styles.buttonContainer}>
+              <CustomButton
+                title={`Level ${level}`}
+                onPress={() => navigation.navigate('Level', { level : level })}
+              />
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
