@@ -11,6 +11,10 @@ export const styles = StyleSheet.create({
         fontSize: 24,
         marginBottom: 20,
       },
+      instruction: {
+        fontSize: 18,
+        marginBottom: 20,
+      },
       scrollView: {
         flex: 1,
         width: '100%',
