@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, Dimensions, Platform } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import reactJsxParser from 'html-react-parser';
 import CodeEditor, { CodeEditorSyntaxStyles } from '@rivascva/react-native-code-editor';
-import { Dimensions } from 'react-native';
-import {Platform, StyleSheet} from 'react-native';
 
 import { styles } from '../styles/Styles'; // Import the styles
 import CustomButton from '../components/CustomButton';
@@ -52,7 +50,8 @@ function LevelScreen({ navigation }) {
 
   const executeJavaCode = async () => {
     // Send the Java code to the server
-    const response = await fetch('http://localhost:3000/execute', {
+    //const response = await fetch('http://localhost:3000/execute', {
+    const response = await fetch('http://192.168.16.1:3000/execute', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
