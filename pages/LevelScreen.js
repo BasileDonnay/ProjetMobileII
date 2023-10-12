@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import reactJsxParser from 'html-react-parser';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import CodeEditor, { CodeEditorSyntaxStyles } from '@rivascva/react-native-code-editor';
+import { Dimensions } from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 import { styles } from '../styles/Styles'; // Import the styles
 import CustomButton from '../components/CustomButton';
@@ -18,6 +20,10 @@ function LevelScreen({ navigation }) {
 
   const route = useRoute();
 
+  const screenWidth = Dimensions.get('window').width;
+
+  const lineHeight = 23;
+
   useEffect(() => {
     if (route?.params?.level) {
       const currentLevel = route?.params?.level;
@@ -28,16 +34,28 @@ function LevelScreen({ navigation }) {
     }
   }, [route]);
 
+  const handleChange = (code) => {
+    setJavaCode(code);
+  };
+
   const goBackToHome = () => {
     navigation.goBack();
   };
 
+  const getSyntaxStyle = () => {
+    if (Platform.OS === 'android') {
+      return CodeEditorSyntaxStyles.atomOneDark;
+    } else {
+      return CodeEditorSyntaxStyles.tomorrow;
+    }
+  };
+
   const executeJavaCode = async () => {
     // Send the Java code to the server
-    const response = await fetch("http://localhost:3000/execute", {
-      method: "POST",
+    const response = await fetch('http://localhost:3000/execute', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ code: javaCode }),
     });
@@ -53,17 +71,26 @@ function LevelScreen({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.header}>Level {level}</Text>
       <Text style={styles.instruction}>{instruction}</Text>
-      <TextInput
-        multiline
-        style={styles.codeEditor}
-        value={javaCode}
-        onChangeText={(text) => setJavaCode(text)}
-      />
-      <SyntaxHighlighter language="java">
-        {javaCode}
-      </SyntaxHighlighter>
-      <CustomButton title="Execute Java Code" onPress={executeJavaCode} />
-      <CustomButton title="Go Back" onPress={goBackToHome} />
+      <View style={{ backgroundColor: '#282c34' }}>
+        <CodeEditor
+          style={{
+            width: screenWidth,
+            height: 300,
+            fontSize: 20,
+            inputLineHeight: lineHeight,
+            inputColor: Platform.OS !== 'android' ? '#abb2bf' : undefined, // Only activate this code when on web and not on Android
+            backgroundColor: '#282c34',
+          }}
+          language='java'
+          syntaxStyle= {getSyntaxStyle()}
+          showLineNumbers
+          autoFocus
+          initialValue='res = 1;'
+          onChange={handleChange}
+        />
+      </View>
+      <CustomButton title='Execute Java Code' onPress={executeJavaCode} />
+      <CustomButton title='Go Back' onPress={goBackToHome} />
       <Text style={{ marginTop: 10 }}>Output:</Text>
       <Text>{reactOutput}</Text>
     </View>

@@ -10,4 +10,4 @@ code . &
 node server.js &
 
 # Start the React Native program
-expo start --web
+expo start --web --tunnel
