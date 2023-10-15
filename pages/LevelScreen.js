@@ -50,8 +50,8 @@ function LevelScreen({ navigation }) {
 
   const executeJavaCode = async () => {
     // Send the Java code to the server
-    //const response = await fetch('http://localhost:3000/execute', {
-    const response = await fetch('http://192.168.16.1:3000/execute', {
+    const response = await fetch('http://localhost:3000/execute', {
+    //const response = await fetch('http://192.168.16.1:3000/execute', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -60,7 +60,16 @@ function LevelScreen({ navigation }) {
     });
 
     // Get the output from the server
-    const result = await response.text();
+    var result = await response.text();
+    console.log(response);
+    //result = response.statusText.toString();
+
+    /*try {
+      response.statusText;
+    } catch (error) {
+      result = response.statusText;
+      console.log(result);
+    }*/
 
     // Set the output state
     setOutput(result);
