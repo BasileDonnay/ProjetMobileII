@@ -5,7 +5,6 @@ const cors = require("cors");
 
 const app = express();
 const port = 3000;
-const level = 1;
 
 // Enable CORS
 app.use(cors());
@@ -14,8 +13,9 @@ app.use(bodyParser.json());
 
 app.post("/execute", (req, res) => {
     const { code } = req.body;
+    const level = req.headers.level;
 
-    console.log("executing java code");
+    console.log(`executing java code : ${code}`);
 
     try {
         // Save the Java code to a temporary file
@@ -44,8 +44,6 @@ public class CodeExecutor {
 
         require("fs").writeFileSync("CodeExecutor.java", javaCode);
         execSync("javac CodeExecutor.java 2>&1", { encoding: "utf-8" });
-        //execSync("javac StudentExerciceTest.java 2>&1", { encoding: "utf-8" });
-        //execSync("javac Ex1.java 2>&1", { encoding: "utf-8" });
 
         // Compile and execute the Java code
         const compileOutput = execSync(`javac Ex${level}.java 2>&1`, { encoding: "utf-8" });
@@ -57,7 +55,7 @@ public class CodeExecutor {
         const executionOutput = execSync(`java Ex${level} 2>&1`, { encoding: "utf-8" });
         res.send(executionOutput);
     } catch (error) {
-        res.status(500).send("Error executing Java code:\n" + error.message);
+        res.send('Error executing Java code');
         console.error("Java execution error:", error);
     }
 });

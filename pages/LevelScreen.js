@@ -55,6 +55,7 @@ function LevelScreen({ navigation }) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Level': level,
       },
       body: JSON.stringify({ code: javaCode }),
     });
@@ -62,17 +63,13 @@ function LevelScreen({ navigation }) {
     // Get the output from the server
     var result = await response.text();
     console.log(response);
-    //result = response.statusText.toString();
-
-    /*try {
-      response.statusText;
-    } catch (error) {
-      result = response.statusText;
-      console.log(result);
-    }*/
 
     // Set the output state
-    setOutput(result);
+    if(response.statusText != "Internal Server Error"){
+      setOutput(result);
+    } else {
+      setOutput(response.statusText);
+    }
   };
 
   return (
