@@ -55,7 +55,7 @@ public class CodeExecutor {
         const executionOutput = execSync(`java Ex${level} 2>&1`, { encoding: "utf-8" });
         res.send(executionOutput);
     } catch (error) {
-        res.send('Error executing Java code');
+        res.status(500).send('Error executing Java code');
         console.error("Java execution error:", error);
     }
 });

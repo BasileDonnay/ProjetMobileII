@@ -62,13 +62,12 @@ function LevelScreen({ navigation }) {
 
     // Get the output from the server
     var result = await response.text();
-    console.log(response);
-
+    
     // Set the output state
-    if(response.statusText != "Internal Server Error"){
+    if(result != "Error executing Java code"){
       setOutput(result);
     } else {
-      setOutput(response.statusText);
+      setOutput(`<div>${result}</div>`);
     }
   };
 
