@@ -47,7 +47,8 @@ app.post("/execute", (req, res) => {
         const executionOutput = execSync(`java Ex${level} 2>&1`, { encoding: "utf-8" });
         res.send(executionOutput);
     } catch (error) {
-        res.status(500).send('Error executing Java code');
+        // res.status(500).send('Error executing Java code');
+        res.status(500).send(error);
         console.error("Java execution error:", error);
     }
 });

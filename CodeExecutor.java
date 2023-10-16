@@ -3,7 +3,7 @@ public class CodeExecutor {
         int res = 0;
 
         System.out.println(data);
-res = 1;
+test
 
         return res;
     }

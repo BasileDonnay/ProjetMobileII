@@ -36,16 +36,19 @@ function LevelScreen({ navigation }) {
     setJavaCode(code);
   };
 
-  const goBackToHome = () => {
-    navigation.goBack();
-  };
-
   const getSyntaxStyle = () => {
     if (Platform.OS === 'android') {
       return CodeEditorSyntaxStyles.atomOneDark;
     } else {
       return CodeEditorSyntaxStyles.tomorrow;
     }
+  };
+
+  const replaceNewlinesWithHtmlCodes = (text) => {
+    const intermediary = text.replace(/\\n/g, '<br>').replace(/\\r/g, '').replace('{"status":1,"signal":null,"output":[null,"', '');
+    const i = intermediary.indexOf('",""],"pid":');
+    const res = intermediary.substring(0,i);
+    return res;
   };
 
   const executeJavaCode = async () => {
@@ -64,10 +67,10 @@ function LevelScreen({ navigation }) {
     var result = await response.text();
     
     // Set the output state
-    if(result != "Error executing Java code"){
+    if(response.statusText != "Internal Server Error"){
       setOutput(result);
     } else {
-      setOutput(`<div>${result}</div>`);
+      setOutput(`<div>${replaceNewlinesWithHtmlCodes(result)}</div>`);
     }
   };
 
@@ -96,7 +99,6 @@ res = 1;'
       </View>
       <Text> </Text>
       <CustomButton title='Execute Java Code' color='green' height={80} width={250} onPress={executeJavaCode} />
-      {/* <CustomButton title='Go Back' onPress={goBackToHome} /> */}
       <Text style={{ marginTop: 10 }}>Output:</Text>
       <Text>{reactOutput}</Text>
     </View>
