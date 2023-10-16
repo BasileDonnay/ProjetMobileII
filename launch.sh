@@ -11,5 +11,3 @@ node server.js &
 
 # Start the React Native program
 expo start --web --tunnel -c
-#expo start --web --reset-cache
-#npm start -- --reset-cache

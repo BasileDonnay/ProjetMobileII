@@ -18,6 +18,9 @@ function HomeScreen() {
             <View key={level} style={styles.buttonContainer}>
               <CustomButton
                 title={`Level ${level}`}
+                color='#4287f5'
+                height={50}
+                width={100}
                 onPress={() => navigation.navigate('Level', { level : level })}
               />
             </View>

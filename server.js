@@ -4,7 +4,7 @@ const { execSync } = require("child_process");
 const cors = require("cors");
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 // Enable CORS
 app.use(cors());
@@ -19,8 +19,7 @@ app.post("/execute", (req, res) => {
 
     try {
         // Save the Java code to a temporary file
-        const javaCode = `
-public class CodeExecutor {
+        const javaCode = `public class CodeExecutor {
     public static int code(String data){
         int res = 0;
 
@@ -30,14 +29,7 @@ public class CodeExecutor {
     }
 
     public static int solution(String test) {
-        int counter = 0;
-        for (char letter : test.toCharArray()) {
-            if (letter == 'a') {
-                counter++;
-            }
-        }
-        return counter;
-        //return Ex1.solution(test);
+        return Ex${level}.solution(test);
     }
 }
         `;

@@ -50,7 +50,7 @@ function LevelScreen({ navigation }) {
 
   const executeJavaCode = async () => {
     // Send the Java code to the server
-    const response = await fetch('http://localhost:3000/execute', {
+    const response = await fetch('http://localhost:3001/execute', {
     //const response = await fetch('http://192.168.16.1:3000/execute', {
       method: 'POST',
       headers: {
@@ -89,12 +89,14 @@ function LevelScreen({ navigation }) {
           syntaxStyle= {getSyntaxStyle()}
           showLineNumbers
           autoFocus
-          initialValue='res = 1;'
+          initialValue='System.out.println(data);
+res = 1;'
           onChange={handleChange}
         />
       </View>
-      <CustomButton title='Execute Java Code' onPress={executeJavaCode} />
-      <CustomButton title='Go Back' onPress={goBackToHome} />
+      <Text> </Text>
+      <CustomButton title='Execute Java Code' color='green' height={80} width={250} onPress={executeJavaCode} />
+      {/* <CustomButton title='Go Back' onPress={goBackToHome} /> */}
       <Text style={{ marginTop: 10 }}>Output:</Text>
       <Text>{reactOutput}</Text>
     </View>
