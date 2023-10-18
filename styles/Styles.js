@@ -9,11 +9,11 @@ export const styles = StyleSheet.create({
         fontSize: 30,
       },
       header: {
-        fontSize: 24,
+        fontSize: 40,
         marginBottom: 20,
       },
       instruction: {
-        fontSize: 18,
+        fontSize: 30,
         marginBottom: 20,
       },
       scrollView: {

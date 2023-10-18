@@ -1,22 +1,17 @@
 public class Ex1 {
     public static void main(String[] args) {
-        System.out.println("TESTS");
+        StudentExerciceTest.printTestTitle();
 
-        StudentExerciceTest.testStudentResult("salut", "abba");
+        StudentExerciceTest.testStudentResult("salut");
 
-        StudentExerciceTest.hiddenTestStudentResult("avalanche", "arabic", "", "a");
+        StudentExerciceTest.hiddenTestStudentResult("rat", "maison", "école", "zebre");
 
         //give statistics time, lines of code and executions
         //System.out.println("STATISTIQUES<br>");
     }
 
-    public static int solution(String test) {
-        int counter = 0;
-        for (char letter : test.toCharArray()) {
-            if (letter == 'a') {
-                counter++;
-            }
-        }
-        return counter;
+    //TODO
+    public static Object solution(String test) {
+        return test.charAt(0);
     }
 }

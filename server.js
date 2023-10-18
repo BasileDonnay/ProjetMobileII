@@ -20,15 +20,11 @@ app.post("/execute", (req, res) => {
     try {
         // Save the Java code to a temporary file
         const javaCode = `public class CodeExecutor {
-    public static int code(String data){
-        int res = 0;
-
+    public static Object code(String data){
         ${code}
-
-        return res;
     }
 
-    public static int solution(String test) {
+    public static Object solution(String test) {
         return Ex${level}.solution(test);
     }
 }

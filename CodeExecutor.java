@@ -1,14 +1,9 @@
 public class CodeExecutor {
-    public static int code(String data){
-        int res = 0;
-
-        System.out.println(data);
-test
-
-        return res;
+    public static Object code(String data){
+        return 's';
     }
 
-    public static int solution(String test) {
+    public static Object solution(String test) {
         return Ex1.solution(test);
     }
 }

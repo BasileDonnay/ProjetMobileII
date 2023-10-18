@@ -8,7 +8,7 @@ import { styles } from '../styles/Styles'; // Import the styles
 import CustomButton from '../components/CustomButton';
 import levelInstructions from '../data/levels.json'; // Import the JSON file
 
-function LevelScreen({ navigation }) {
+function LevelScreen() {
   const [level, setLevel] = useState('');
   const [instruction, setInstruction] = useState('');
   const [javaCode, setJavaCode] = useState(''); // State variable to store the Java code
@@ -54,7 +54,7 @@ function LevelScreen({ navigation }) {
   const executeJavaCode = async () => {
     // Send the Java code to the server
     const response = await fetch('http://localhost:3001/execute', {
-    //const response = await fetch('http://192.168.16.1:3000/execute', {
+    //const response = await fetch('http://192.168.16.1:3001/execute', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ function LevelScreen({ navigation }) {
     if(response.statusText != "Internal Server Error"){
       setOutput(result);
     } else {
-      setOutput(`<div>${replaceNewlinesWithHtmlCodes(result)}</div>`);
+      setOutput(`<div style=\"font-size: 30px;\">${replaceNewlinesWithHtmlCodes(result)}</div>`);
     }
   };
 
@@ -92,14 +92,13 @@ function LevelScreen({ navigation }) {
           syntaxStyle= {getSyntaxStyle()}
           showLineNumbers
           autoFocus
-          initialValue='System.out.println(data);
-res = 1;'
+          initialValue='return 1;'
           onChange={handleChange}
         />
       </View>
       <Text> </Text>
       <CustomButton title='Execute Java Code' color='green' height={80} width={250} onPress={executeJavaCode} />
-      <Text style={{ marginTop: 10 }}>Output:</Text>
+      <Text style={styles.instruction}>Output:</Text>
       <Text>{reactOutput}</Text>
     </View>
   );
