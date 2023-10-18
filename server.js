@@ -17,15 +17,40 @@ app.post("/execute", (req, res) => {
 
     console.log(`executing java code : ${code}`);
 
+    function addIplusplusToEveryLine(javaCode) {
+        // Split the Java code into lines.
+        const lines = javaCode.split("\n");
+      
+        // Iterate over the lines and add `i++;` to the end of each line.
+        const updatedLines = lines.map((line) => {
+          // Ignore empty lines and comment lines.
+          if (line != null && !line.startsWith("//") && line.endsWith("{")) {
+            return line + " iterationCounterADMINONLY++;";
+          } else {
+            return line;
+          }
+        });
+      
+        // Combine the lines back into a single string.
+        return updatedLines.join("\n");
+      }
+      
+      const updatedJavaCode = addIplusplusToEveryLine(code);
+
     try {
         // Save the Java code to a temporary file
         const javaCode = `public class CodeExecutor {
+    private static int iterationCounterADMINONLY = 0;
     public static Object code(String data){
-        ${code}
+        ${updatedJavaCode}
     }
 
     public static Object solution(String test) {
         return Ex${level}.solution(test);
+    }
+
+    public static int getIteration(){
+        return iterationCounterADMINONLY/2;
     }
 }
         `;

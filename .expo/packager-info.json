@@ -1,9 +1,9 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19000,
-  "webpackServerPort": 19006,
+  "expoServerPort": 19003,
+  "packagerPort": 19003,
+  "webpackServerPort": 19009,
   "packagerPid": null,
   "expoServerNgrokUrl": "https://ys-z26.anonymous.projetmobileii.exp.direct",
   "packagerNgrokUrl": "https://ys-z26.anonymous.projetmobileii.exp.direct",
-  "ngrokPid": 34172
+  "ngrokPid": 33524
 }
