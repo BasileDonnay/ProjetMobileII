@@ -34,7 +34,15 @@ function LevelScreen() {
 
   const handleChange = (code) => {
     setJavaCode(code);
+    localStorage.setItem(`level_${level}_code`, javaCode);
   };
+
+  // Get the code from local storage.
+  var codeFromLocalStorage = "return 1;"; 
+  const localCode = localStorage.getItem(`level_${route?.params?.level}_code`);
+  if(localCode != ""){
+    codeFromLocalStorage = localCode;
+  }
 
   const getSyntaxStyle = () => {
     if (Platform.OS === 'android') {
@@ -92,7 +100,7 @@ function LevelScreen() {
           syntaxStyle= {getSyntaxStyle()}
           showLineNumbers
           autoFocus
-          initialValue='return 1;'
+          initialValue={codeFromLocalStorage}
           onChange={handleChange}
         />
       </View>

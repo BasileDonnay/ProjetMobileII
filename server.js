@@ -42,6 +42,7 @@ app.post("/execute", (req, res) => {
         const javaCode = `public class CodeExecutor {
     private static int iterationCounterADMINONLY = 0;
     public static Object code(String data){
+        iterationCounterADMINONLY = 0;
         ${updatedJavaCode}
     }
 
@@ -50,7 +51,7 @@ app.post("/execute", (req, res) => {
     }
 
     public static int getIteration(){
-        return iterationCounterADMINONLY/2;
+        return iterationCounterADMINONLY;
     }
 }
         `;

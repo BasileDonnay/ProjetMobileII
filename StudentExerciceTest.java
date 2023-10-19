@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class StudentExerciceTest {
-    private static final int linesAlreadyInCodeExecutor = 14;
+    private static final int linesAlreadyInCodeExecutor = 15;
     private static final String newLine = "<br>";
     private static final String failColor = "#ff0000";
     private static final String successColor = "#14eb00";

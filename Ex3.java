@@ -1,5 +1,6 @@
 public class Ex3 {
     public static void main(String[] args) {
+        //give test results
         StudentExerciceTest.printTestTitle();
 
         StudentExerciceTest.testStudentResult("haBilLer", "abbA");
@@ -7,7 +8,9 @@ public class Ex3 {
         StudentExerciceTest.hiddenTestStudentResult("avalANche", "ARABIC", "QD", "a");
 
         //give statistics time, lines of code and executions
-        //System.out.println("STATISTIQUES<br>");
+        StudentExerciceTest.printStatisticsTitle();
+
+        StudentExerciceTest.Statistics();
     }
 
     public static int solution(String data) {
