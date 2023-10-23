@@ -5,6 +5,7 @@ import reactJsxParser from 'html-react-parser';
 import CodeEditor, { CodeEditorSyntaxStyles } from '@rivascva/react-native-code-editor';
 
 import { styles } from '../styles/Styles'; // Import the styles
+import tomorrow from '../styles/tomorrow'; // Import the styles
 import CustomButton from '../components/CustomButton';
 import levelInstructions from '../data/levels.json'; // Import the JSON file
 
@@ -40,7 +41,7 @@ function LevelScreen() {
   // Get the code from local storage.
   var codeFromLocalStorage = "return 1;"; 
   const localCode = localStorage.getItem(`level_${route?.params?.level}_code`);
-  if(localCode != ""){
+  if(localCode != "" && localCode != "null"){
     codeFromLocalStorage = localCode;
   }
 
@@ -48,7 +49,7 @@ function LevelScreen() {
     if (Platform.OS === 'android') {
       return CodeEditorSyntaxStyles.atomOneDark;
     } else {
-      return CodeEditorSyntaxStyles.tomorrow;
+      return tomorrow;
     }
   };
 

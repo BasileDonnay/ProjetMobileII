@@ -3,11 +3,12 @@ import { View, Text, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {styles} from '../styles/Styles'; // Import the styles
 import CustomButton from '../components/CustomButton';
+//import LoginButton from '../components/LoginButton';
 
 function HomeScreen() {
   const navigation = useNavigation();
 
-  const levels = Array.from({ length: 3 }, (_, index) => index + 1);
+  const levels = Array.from({ length: 4 }, (_, index) => index + 1);
 
   return (
     <View style={styles.container}>
@@ -26,7 +27,15 @@ function HomeScreen() {
             </View>
           ))}
         </View>
+        <CustomButton
+          title={`Login`}
+          color='#4287f5'
+          height={50}
+          width={100}
+          onPress={() => navigation.navigate('Login')}
+        />
       </ScrollView>
+      {/* <LoginButton style={styles.loginButton} /> */}
     </View>
   );
 }

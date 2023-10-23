@@ -2,8 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from './pages/HomeScreen'; // Import your HomeScreen component
-import LevelScreen from './pages/LevelScreen'; // Import your Level1 component
+import HomeScreen from './pages/HomeScreen'; // Import HomeScreen component
+import LevelScreen from './pages/LevelScreen'; // Import Level component
+//import LoginScreen from './pages/LoginScreen';
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Level" component={LevelScreen} />
+        {/* <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

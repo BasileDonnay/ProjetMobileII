@@ -2,7 +2,7 @@ public class CodeExecutor {
     private static int iterationCounterADMINONLY = 0;
     public static Object code(String data){
         iterationCounterADMINONLY = 0;
-        
+        return 1;
     }
 
     public static Object solution(String test) {
