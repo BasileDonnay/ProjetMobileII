@@ -45,7 +45,7 @@ const ProfileScreen = () => {
         <View style={styles.inputContainer}>
           <Text style={styles.inputLabel}>Display Name</Text>
           <TextInput
-            placeholder="Type your display name"
+            placeholder="Type your new username"
             value={displayName}
             onChangeText={(text) => setDisplayName(text)}
             style={styles.input}
@@ -53,7 +53,7 @@ const ProfileScreen = () => {
 
           <Text style={styles.inputLabel}>Email</Text>
           <TextInput
-            placeholder="Type your email"
+            placeholder="Type your new email"
             value={email}
             onChangeText={(text) => setEmail(text)}
             style={styles.input}
@@ -62,7 +62,7 @@ const ProfileScreen = () => {
 
           <Text style={styles.inputLabel}>Password</Text>
           <TextInput
-            placeholder="Type your password"
+            placeholder="Type your new password"
             value={password}
             onChangeText={(text) => setPassword(text)}
             style={styles.input}

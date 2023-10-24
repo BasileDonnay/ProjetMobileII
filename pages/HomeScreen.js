@@ -10,7 +10,7 @@ function HomeScreen() {
   const navigation = useNavigation();
   const [username, setUsername] = useState('');
 
-   useEffect(() => {
+  useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setUsername(user.displayName || user.email);
