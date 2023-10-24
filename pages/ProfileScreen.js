@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
+import { styles } from '../styles/Styles'; // Import the styles
 import { auth } from "../firebase";
 
 const ProfileScreen = () => {
@@ -19,10 +19,6 @@ const ProfileScreen = () => {
 
   const user = auth.currentUser;
 
-  const handleLogout = () => {
-    auth.signOut();
-  };
-
   const handleSave = async () => {
     try {
       await user.updateProfile({
@@ -30,10 +26,25 @@ const ProfileScreen = () => {
       });
       await user.updateEmail(email);
       await user.updatePassword(password);
+      
+      // Update the username state variable with the new display name
+      setUsername(displayName);
     } catch (error) {
       setError(error.message);
     }
   };
+
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUsername(user.displayName || user.email);
+      } else {
+        setUsername('');
+      }
+    });
+  }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -43,6 +54,7 @@ const ProfileScreen = () => {
         keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
       >
         <View style={styles.inputContainer}>
+        <Text style={styles.header}>Hello {username}!</Text>
           <Text style={styles.inputLabel}>Display Name</Text>
           <TextInput
             placeholder="Type your new username"
@@ -75,71 +87,10 @@ const ProfileScreen = () => {
           <TouchableOpacity onPress={handleSave} style={styles.button}>
             <Text style={styles.buttonText}>Save</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity onPress={handleLogout} style={styles.button}>
-            <Text style={styles.buttonText}>Logout</Text>
-          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollViewContent: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  inputContainer: {
-    width: 300,
-    alignItems: "flex-start", // Alignez les éléments à gauche
-  },
-  inputLabel: {
-    marginLeft: 5, // Ajoutez une marge à gauche pour déplacer le inputContainer vers la droite
-    paddingTop: 10,
-    color: "white",
-    fontSize: 17,
-    marginBottom: 5,
-  },
-  input: {
-    backgroundColor: "#fff",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 15,
-    marginTop: 5,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    width: "100%",
-  },
-  buttonContainer: {
-    width: 220,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
-  },
-  button: {
-    backgroundColor: "#248ad9",
-    width: "100%",
-    padding: 15,
-    borderRadius: 20,
-    alignItems: "center",
-    marginTop: 20,
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  errorText: {
-    color: "red",
-    marginTop: 10,
-  },
-});
 
 export default ProfileScreen;

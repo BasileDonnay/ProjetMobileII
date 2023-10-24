@@ -38,6 +38,7 @@ function LevelScreen() {
     localStorage.setItem(`level_${level}_code`, javaCode);
   };
 
+  //TODO only do this for web
   // Get the code from local storage.
   var codeFromLocalStorage = "return 1;"; 
   const localCode = localStorage.getItem(`level_${route?.params?.level}_code`);

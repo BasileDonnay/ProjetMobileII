@@ -21,6 +21,12 @@ export default function App() {
     });
   }, []);
 
+  const handleLogout = () => {
+    auth.signOut();
+    // Navigate to home after logging out
+    navigation.navigate('Home');
+  };
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -57,13 +63,44 @@ export default function App() {
           })}
         />
 
-        <Stack.Screen name="Level" component={LevelScreen} />
+        <Stack.Screen 
+          name="Level" 
+          component={LevelScreen} 
+          options={({ navigation }) => ({
+            title: false,
+            headerTitle: false,
+            headerBackTitleVisible: false,
+            headerTransparent: true,
+            headerShadowVisible: false,
+            headerRight: () => {
+              const button = isUserConnected ? (
+                <CustomButton
+                  title={`Profile`}
+                  color='#8ceb34'
+                  height={50}
+                  width={100}
+                  onPress={() => navigation.navigate('Profile')}
+                />
+              ) : (
+                <CustomButton
+                  title={`Login`}
+                  color='#8ceb34'
+                  height={50}
+                  width={100}
+                  onPress={() => navigation.navigate('Login')}
+                />
+              );
+
+              return button;
+            },
+          })}
+        />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
-          options={({ navigation }) => ({
+          options={() => ({
             title: false,
             headerTitle: false,
             headerBackTitleVisible: false,
@@ -75,7 +112,7 @@ export default function App() {
                 color='#f52727'
                 height={50}
                 width={100}
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => handleLogout()}
               />
             ),
           })}
