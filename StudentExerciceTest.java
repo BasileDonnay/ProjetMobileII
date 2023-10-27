@@ -1,7 +1,15 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.awt.Color;
+import javax.imageio.ImageIO;
 
 public class StudentExerciceTest {
+    private static final String imageFormat = "png";
+    private static final String piechartImageName = "assets/PieChartImage." + imageFormat;
     private static final int linesAlreadyInCodeExecutor = 15;
     private static final String newLine = "<br>";
     private static final String failColor = "#ff0000";
@@ -9,6 +17,7 @@ public class StudentExerciceTest {
     private static final String paragraphType = "p";
     private static final String testTitleType = "h1";
     private static final String fontSize = "30";
+    private static final String statisticsColor = "#e07634";
     private static long executionTime;
 
     public static void testStudentResult(String... tests) {
@@ -60,11 +69,22 @@ public class StudentExerciceTest {
     }
 
     public static void Statistics() {
-        System.out.println("Execution time: " + executionTime / 1_000L + " miliseconds");
-        
-        System.out.println("Number of lines of code: " + countLinesOfCodeInFile("CodeExecutor.java"));
+        System.out.print("<table><tr>");
+            System.out.print("<td><" + paragraphType + " style=\"font-size: " + fontSize + "px;\">");
+                System.out.println("Execution time: " + colorise(statisticsColor, executionTime / 1_000L + "") + " milliseconds");
+                
+                System.out.println("Number of lines of code: " + colorise(statisticsColor, countLinesOfCodeInFile("CodeExecutor.java") + ""));
 
-        System.out.println("Number of iterations: " + CodeExecutor.getIteration());
+                System.out.println("Number of iterations: " + colorise(statisticsColor, CodeExecutor.getIteration() + ""));
+            System.out.print("</" + paragraphType + "></td>");
+
+            //piechart
+            System.out.print("<td><img src=\"https://images.unsplash.com/photo-1575936123452-b67c3203c357?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D\" /></td>");
+            //System.out.print("<td><img src=\"../" + piechartImageName + "\"  width=\"300\" height=\"300\"></td>");
+        System.out.print("</tr></table>");
+
+        //create image of piechart
+        paint();
     }
 
     public static int countLinesOfCodeInFile(String fileName) {
@@ -97,5 +117,25 @@ public class StudentExerciceTest {
 
         // Return the number of lines of code.
         return count;
+    }
+
+    public static void paint() {     
+        //paint(g);
+        int imageLength = 100;
+        BufferedImage image = new BufferedImage(imageLength, imageLength, BufferedImage.TYPE_INT_RGB);
+        Graphics g = image.createGraphics();
+        //background
+        g.setColor(Color.white);
+        g.fillRect(0, 0, imageLength, imageLength); 
+
+        //piechart
+        g.setColor(Color.blue);
+        g.fillArc(0, 0, imageLength, imageLength, 0, 300);
+
+        try {
+            ImageIO.write(image, imageFormat, new File(piechartImageName));
+        }catch (IOException e) {
+           e.printStackTrace();
+        }
     }
 }
