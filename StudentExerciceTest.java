@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
+import java.awt.Font;
+
 import javax.imageio.ImageIO;
 
 public class StudentExerciceTest {
@@ -19,6 +21,7 @@ public class StudentExerciceTest {
     private static final String fontSize = "30";
     private static final String statisticsColor = "#e07634";
     private static final int imageLength = 300;
+    private static final int additionalTextLength = 300;
     private static final int outlineWidth = 3;
     private static long executionTime;
     private static int shownTestsSuccessCounter;
@@ -125,28 +128,45 @@ public class StudentExerciceTest {
     }
 
     public static void paint() {
-        BufferedImage image = new BufferedImage(imageLength, imageLength, BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(imageLength + additionalTextLength, imageLength, BufferedImage.TYPE_INT_RGB);
         Graphics g = image.createGraphics();
 
         //background
         g.setColor(Color.white);
-        g.fillRect(0, 0, imageLength, imageLength); 
+        g.fillRect(0, 0, imageLength + additionalTextLength, imageLength); 
 
         //-----------------
         //*   PIECHART    *
         //-----------------
         int totalTests = shownTestsFailCounter + shownTestsSuccessCounter;
         int successAngle = (int) (((double) shownTestsSuccessCounter/(double) totalTests) * (double) 360);
-        System.out.println(totalTests);
-        System.out.println(successAngle);
         drawArc(g, 0, successAngle, Color.green);
         drawArc(g, successAngle, 360-successAngle, Color.red);
+
+
+        //-----------------
+        //*  Percentages  *
+        //-----------------
+        drawPercentage(g, successAngle, Color.green, "success", 2);
+        drawPercentage(g, 360 - successAngle, Color.red, "fail", 5);
+
 
         try {
             ImageIO.write(image, imageFormat, new File(piechartImageName));
         }catch (IOException e) {
            e.printStackTrace();
         }
+    }
+
+    private static void drawPercentage(Graphics g, int angle, Color color, String string, int verticalOffset) {
+        int squareWidth = 30;
+        int squareXOffset = 40;
+        int arcWidth = 15;
+        g.setFont(new Font("arial", 10, 30));
+        g.setColor(color);
+        g.fillRoundRect(imageLength + squareXOffset, verticalOffset*imageLength/8, squareWidth, squareWidth, arcWidth, arcWidth);
+        g.setColor(Color.black);
+        g.drawString((((double) angle/360) * 100) + "% " + string, imageLength + squareXOffset + squareWidth + 10, verticalOffset*imageLength/8 + 25);
     }
 
     private static void drawArc(Graphics g, int startAngle, int endAngle, Color color) {
@@ -160,8 +180,8 @@ public class StudentExerciceTest {
         0 + outlineWidth, 
         imageLength - 2*outlineWidth, 
         imageLength - 2*outlineWidth, 
-        startAngle/*+(3*outlineWidth/4)*/, 
-        endAngle/*-(3*outlineWidth/4)*/
+        startAngle, 
+        endAngle
         );
     }
 }
