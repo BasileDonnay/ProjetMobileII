@@ -8,20 +8,9 @@ code . &
 node server.js &
 
 # Start the React Native program
-expo start --web --tunnel -c
+expo start --web --tunnel -c &
 
-#LOG
-# exec >> log.txt 2>&1
+$python3 C:/Users/basil/ProjetMobileII/server.py 
 
-# timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-
-# cd "/c/Users/basil/ProjetMobileII"
-
-# echo "$timestamp code ." >> log.txt
-# code . &
-
-# echo "$timestamp node server.js" >> log.txt
-# node server.js &
-
-# echo "$timestamp expo start --web --tunnel -c" >> log.txt
-# expo start --web --tunnel -c
+# to log add this to end of file
+# >> log.txt 2>&1

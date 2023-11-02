@@ -136,3 +136,122 @@ Logs for your project will appear below. Press Ctrl+C to exit.
 [09:58:35] › Stopping Webpack server
 - Stopping server
 
+2023-11-02 13:02:17 code .
+2023-11-02 13:02:17 node server.js
+2023-11-02 13:02:17 expo start --web --tunnel -c
+stdout is not a tty
+[33mWARNING: The legacy expo-cli does not support Node +17. Migrate to the new local Expo CLI: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.[39m
+[13:02:18] Starting project at C:\Users\basil\ProjetMobileII
+[13:02:18] Some dependencies are incompatible with the installed expo package version:
+[13:02:18]  - react-native - expected version: 0.72.6 - actual version installed: 0.72.5
+[13:02:18] Your project may not work correctly until you install the correct versions of the packages.
+To install the correct versions of these packages, please run: expo doctor --fix-dependencies,
+or install individual packages by running expo install [package-name ...]
+[13:02:19] Starting Metro Bundler
+[13:02:19] Your JavaScript transform cache is empty, rebuilding (this may take a minute).
+[13:02:37] Successfully ran `adb reverse`. Localhost URLs should work on the connected Android device.
+[13:02:37] Using legacy dev server: false
+[13:02:39] Tunnel connected.
+[13:02:39] Tunnel ready.
+[13:02:39] Starting Webpack on port 19006 in development mode.
+[13:02:43] Started Metro Bundler
+
+[13:02:43] ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █▄▄▄ ▄▄▀█ ▄ ▄██ ▄▄▄▄▄ █
+█ █   █ █ ▀▄▀█ ▄█▄▀██▀█ █   █ █
+█ █▄▄▄█ █▄ ███▄ ▄▄▄▄ ▀█ █▄▄▄█ █
+█▄▄▄▄▄▄▄█▄▀▄█▄█ █ ▀▄█▄█▄▄▄▄▄▄▄█
+█▄▄▄▄█▀▄█▄▀█  █▄█ ▄▄   ▀█ ▄ █ █
+███  ▄█▄▄ ██▄▀▀▀█████▀▄▄ ▄▀██▀█
+█ ▄ ▄▄▀▄▀█ ▀█▀ ▄▀▀▄█ ██▀ █▀▄ ▀█
+██▄█▄▀▀▄▄█▄█▀ ▄█▀█▄▄▄ █▄█ █▄ ▄█
+██ ▀▀▄ ▄█▄▀▄ ▀ ▀ █▀▄▄ ▄██▄█▀▀▄█
+█▄█▀▀▄█▄▀▀▄█▀▀█▀ █ ▄█ █ ▀▀  ▀██
+██▄▄▄██▄█  █▀█▀██ ▄ ▀ ▄▄▄ █   █
+█ ▄▄▄▄▄ ██ █ █ █▀▄▄ ▄ █▄█ ▄▄ ██
+█ █   █ █▀▀▄█▀▄ ▀▀ ▀█▄ ▄▄ ▄  ▀█
+█ █▄▄▄█ █ █▄█ ▄▄▀▀█ █ █▀ ▀█▄▀▄█
+█▄▄▄▄▄▄▄█▄█▄██▄█▄██▄▄▄▄▄█▄██▄██
+
+[13:02:43] Your native app is running at exp://ys-z26.anonymous.projetmobileii.exp.direct:80
+Logs for your project will appear below. Press Ctrl+C to exit.
+[1mweb[39m[22m compiled [1m[32msuccessfully[39m[22m
+- Stopping server
+[13:04:30] › Stopping Webpack server
+- Stopping server
+
+bash: C:xamppapachebinhttpd.exe: command not found
+[Thu Nov 02 13:17:27.314800 2023] [mpm_winnt:error] [pid 16852:tid 428] (OS 2)The system cannot find the file specified.  : AH00436: No installed service named "Apache2.4".
+[Thu Nov 02 13:17:50.673311 2023] [mpm_winnt:error] [pid 22068:tid 432] (OS 2)The system cannot find the file specified.  : AH00436: No installed service named "Apache2.4".
+bash: C:xamppapachebinhttpd.exe: command not found
+[Thu Nov 02 13:25:21.049846 2023] [mpm_winnt:error] [pid 17700:tid 452] (OS 2)The system cannot find the file specified.  : AH00436: No installed service named "Apache2.4".
+[Thu Nov 02 13:26:28.270007 2023] [mpm_winnt:error] [pid 10184:tid 400] (OS 2)The system cannot find the file specified.  : AH00436: No installed service named "Apache2.4".
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Manage App Execution Aliases.
+bash: C:UsersbasilAppDataLocalMicrosoftWindowsAppsPythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0python.exe: command not found
+C:\Users\basil\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe: No module named SimpleHTTPServer
+bash: -m: command not found
+bash: zsh: command not found
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Manage App Execution Aliases.
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Manage App Execution Aliases.
+bash: server.py: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 1: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 3: syntax error near unexpected token `('
+C:/Users/basil/ProjetMobileII/server.py: line 3: `server = SimpleHTTPServer.HTTPServer(('', 8000), SimpleHTTPServer.SimpleHTTPRequestHandler, '/assets')'
+bash: -m: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 7: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 8: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 10: PORT: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 12: Handler: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 14: syntax error near unexpected token `('
+C:/Users/basil/ProjetMobileII/server.py: line 14: `with socketserver.TCPServer(("", PORT), Handler) as httpd:'
+C:/Users/basil/ProjetMobileII/server.py: line 7: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 8: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 10: PORT: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 12: Handler: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 14: syntax error near unexpected token `('
+C:/Users/basil/ProjetMobileII/server.py: line 14: `with socketserver.TCPServer(("", PORT), Handler) as httpd:'
+C:/Users/basil/ProjetMobileII/server.py: line 1: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 2: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 4: PORT: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 6: Handler: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 8: syntax error near unexpected token `('
+C:/Users/basil/ProjetMobileII/server.py: line 8: `with socketserver.TCPServer(("", PORT), Handler) as httpd:'
+C:/Users/basil/ProjetMobileII/server.py: line 1: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 2: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 4: PORT: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 6: Handler: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 8: syntax error near unexpected token `('
+C:/Users/basil/ProjetMobileII/server.py: line 8: `with socketserver.TCPServer(("", PORT), Handler) as httpd:'
+bash: C:/Users/basil/ProjetMobileII/server.py: /usr/bin/python^M: bad interpreter: No such file or directory
+bash: C:/Users/basil/ProjetMobileII/server.py: /usr/bin/python^M: bad interpreter: No such file or directory
+bash: C:/Users/basil/ProjetMobileII/server.py: /usr/bin/python^M: bad interpreter: No such file or directory
+bash: C:/Users/basil/ProjetMobileII/server.py: /usr/bin/python^M: bad interpreter: No such file or directory
+bash: C:/Users/basil/ProjetMobileII/server.py: /usr/bin/python: bad interpreter: No such file or directory
+C:/Users/basil/ProjetMobileII/server.py: line 2: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 3: import: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 5: PORT: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 7: Handler: command not found
+C:/Users/basil/ProjetMobileII/server.py: line 9: syntax error near unexpected token `('
+C:/Users/basil/ProjetMobileII/server.py: line 9: `with socketserver.TCPServer(("", PORT), Handler) as httpd:'
+127.0.0.1 - - [02/Nov/2023 16:44:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2023 16:44:25] code 404, message File not found
+127.0.0.1 - - [02/Nov/2023 16:44:25] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Nov/2023 16:44:56] "GET /assets/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2023 16:44:58] "GET /assets/PieChartImage.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2023 16:48:28] "GET /assets/PieChartImage.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2023 16:48:37] "GET /assets/PieChartImage.png HTTP/1.1" 304 -
+127.0.0.1 - - [02/Nov/2023 16:48:38] "GET /assets/PieChartImage.png HTTP/1.1" 304 -
+127.0.0.1 - - [02/Nov/2023 16:48:39] "GET /assets/PieChartImage.png HTTP/1.1" 304 -
+127.0.0.1 - - [02/Nov/2023 16:49:14] "GET /assets/PieChartImage.png HTTP/1.1" 304 -
+127.0.0.1 - - [02/Nov/2023 16:49:34] "GET /assets/PieChartImage.png HTTP/1.1" 200 -
+serving at port 8000
+Traceback (most recent call last):
+  File "C:\Users\basil\ProjetMobileII\server.py", line 11, in <module>
+    httpd.serve_forever()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\socketserver.py", line 232, in serve_forever
+    ready = selector.select(poll_interval)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\selectors.py", line 324, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\selectors.py", line 315, in _select
+    r, w, x = select.select(r, w, w, timeout)
+KeyboardInterrupt

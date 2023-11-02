@@ -18,7 +18,11 @@ public class StudentExerciceTest {
     private static final String testTitleType = "h1";
     private static final String fontSize = "30";
     private static final String statisticsColor = "#e07634";
+    private static final int imageLength = 300;
+    private static final int outlineWidth = 3;
     private static long executionTime;
+    private static int shownTestsSuccessCounter;
+    private static int shownTestsFailCounter;
 
     public static void testStudentResult(String... tests) {
         for (String test: tests) {
@@ -34,9 +38,11 @@ public class StudentExerciceTest {
             System.out.print("<" + paragraphType + " style=\"font-size: " + fontSize + "px;\">Test avec : '" + test + "' votre réponse : " + studentResult + " ");
             if(solution.equals(studentResult)){
                 System.out.print(colorise(successColor, "correct !"));
+                shownTestsSuccessCounter++;
             } else {
                 System.out.println(colorise(failColor, "pas correct..."));
                 System.out.print("-> La réponse attendue : " + solution + "</span>");
+                shownTestsFailCounter++;
             }
             System.out.print(newLine);
         }
@@ -79,8 +85,7 @@ public class StudentExerciceTest {
             System.out.print("</" + paragraphType + "></td>");
 
             //piechart
-            //System.out.print("<td><img src=\"https://images.unsplash.com/photo-1575936123452-b67c3203c357?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D\" /></td>");
-            //System.out.print("<td><img src=\"../" + piechartImageName + "\"  width=\"300\" height=\"300\"></td>");
+            System.out.print("<td><img src=\"http://localhost:8000/" + piechartImageName + "\" /></td>");
         System.out.print("</tr></table>");
 
         //create image of piechart
@@ -119,23 +124,44 @@ public class StudentExerciceTest {
         return count;
     }
 
-    public static void paint() {     
-        //paint(g);
-        int imageLength = 100;
+    public static void paint() {
         BufferedImage image = new BufferedImage(imageLength, imageLength, BufferedImage.TYPE_INT_RGB);
         Graphics g = image.createGraphics();
+
         //background
         g.setColor(Color.white);
         g.fillRect(0, 0, imageLength, imageLength); 
 
-        //piechart
-        g.setColor(Color.blue);
-        g.fillArc(0, 0, imageLength, imageLength, 0, 300);
+        //-----------------
+        //*   PIECHART    *
+        //-----------------
+        int totalTests = shownTestsFailCounter + shownTestsSuccessCounter;
+        int successAngle = (int) (((double) shownTestsSuccessCounter/(double) totalTests) * (double) 360);
+        System.out.println(totalTests);
+        System.out.println(successAngle);
+        drawArc(g, 0, successAngle, Color.green);
+        drawArc(g, successAngle, 360-successAngle, Color.red);
 
         try {
             ImageIO.write(image, imageFormat, new File(piechartImageName));
         }catch (IOException e) {
            e.printStackTrace();
         }
+    }
+
+    private static void drawArc(Graphics g, int startAngle, int endAngle, Color color) {
+        //outline
+        g.setColor(Color.black);
+        g.fillArc(0, 0, imageLength, imageLength, startAngle, endAngle);
+
+        //arc
+        g.setColor(color);
+        g.fillArc(0 + outlineWidth, 
+        0 + outlineWidth, 
+        imageLength - 2*outlineWidth, 
+        imageLength - 2*outlineWidth, 
+        startAngle/*+(3*outlineWidth/4)*/, 
+        endAngle/*-(3*outlineWidth/4)*/
+        );
     }
 }
