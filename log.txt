@@ -1,0 +1,138 @@
+2023-10-27 08:51:55 code .
+2023-10-27 08:51:55 node server.js
+2023-10-27 08:51:55 expo start --web --tunnel -c
+stdout is not a tty
+[33mWARNING: The legacy expo-cli does not support Node +17. Migrate to the new local Expo CLI: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.[39m
+[08:51:55] Starting project at C:\Users\basil\ProjetMobileII
+[08:51:56] Some dependencies are incompatible with the installed expo package version:
+[08:51:56]  - react-native - expected version: 0.72.6 - actual version installed: 0.72.5
+[08:51:56] Your project may not work correctly until you install the correct versions of the packages.
+To install the correct versions of these packages, please run: expo doctor --fix-dependencies,
+or install individual packages by running expo install [package-name ...]
+[08:51:57] Starting Metro Bundler
+[08:51:57] Your JavaScript transform cache is empty, rebuilding (this may take a minute).
+[08:52:00] Successfully ran `adb reverse`. Localhost URLs should work on the connected Android device.
+[08:52:00] Using legacy dev server: false
+[08:52:00] Tunnel connected.
+[08:52:01] Tunnel ready.
+[08:52:01] Starting Webpack on port 19006 in development mode.
+
+[08:52:03] ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █▄▄▄ ▄▄▀█ ▄ ▄██ ▄▄▄▄▄ █
+█ █   █ █ ▀▄▀█ ▄█▄▀██▀█ █   █ █
+█ █▄▄▄█ █▄ ███▄ ▄▄▄▄ ▀█ █▄▄▄█ █
+█▄▄▄▄▄▄▄█▄▀▄█▄█ █ ▀▄█▄█▄▄▄▄▄▄▄█
+█▄▄▄▄█▀▄█▄▀█  █▄█ ▄▄   ▀█ ▄ █ █
+███  ▄█▄▄ ██▄▀▀▀█████▀▄▄ ▄▀██▀█
+█ ▄ ▄▄▀▄▀█ ▀█▀ ▄▀▀▄█ ██▀ █▀▄ ▀█
+██▄█▄▀▀▄▄█▄█▀ ▄█▀█▄▄▄ █▄█ █▄ ▄█
+██ ▀▀▄ ▄█▄▀▄ ▀ ▀ █▀▄▄ ▄██▄█▀▀▄█
+█▄█▀▀▄█▄▀▀▄█▀▀█▀ █ ▄█ █ ▀▀  ▀██
+██▄▄▄██▄█  █▀█▀██ ▄ ▀ ▄▄▄ █   █
+█ ▄▄▄▄▄ ██ █ █ █▀▄▄ ▄ █▄█ ▄▄ ██
+█ █   █ █▀▀▄█▀▄ ▀▀ ▀█▄ ▄▄ ▄  ▀█
+█ █▄▄▄█ █ █▄█ ▄▄▀▀█ █ █▀ ▀█▄▀▄█
+█▄▄▄▄▄▄▄█▄█▄██▄█▄██▄▄▄▄▄█▄██▄██
+
+[08:52:03] Your native app is running at exp://ys-z26.anonymous.projetmobileii.exp.direct:80
+Logs for your project will appear below. Press Ctrl+C to exit.
+[1mweb[39m[22m compiled [1m[32msuccessfully[39m[22m
+Error: UNKNOWN: unknown error, lstat 'C:\Users\basil\ProjetMobileII\node_modules\@react-native-community\cli\node_modules\supports-color\browser.js'
+2023-10-27 08:53:40 code .
+2023-10-27 08:53:40 node server.js
+2023-10-27 08:53:40 expo start --web --tunnel -c
+stdout is not a tty
+[33mWARNING: The legacy expo-cli does not support Node +17. Migrate to the new local Expo CLI: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.[39m
+[08:53:41] Starting project at C:\Users\basil\ProjetMobileII
+[08:53:42] Some dependencies are incompatible with the installed expo package version:
+[08:53:42]  - react-native - expected version: 0.72.6 - actual version installed: 0.72.5
+[08:53:42] Your project may not work correctly until you install the correct versions of the packages.
+To install the correct versions of these packages, please run: expo doctor --fix-dependencies,
+or install individual packages by running expo install [package-name ...]
+[08:53:42] Starting Metro Bundler
+[08:53:43] Your JavaScript transform cache is empty, rebuilding (this may take a minute).
+[08:53:45] Successfully ran `adb reverse`. Localhost URLs should work on the connected Android device.
+[08:53:45] Using legacy dev server: false
+[08:53:46] Tunnel connected.
+[08:53:46] Tunnel ready.
+[08:53:46] Starting Webpack on port 19006 in development mode.
+
+[08:53:48] ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █▄▄▄ ▄▄▀█ ▄ ▄██ ▄▄▄▄▄ █
+█ █   █ █ ▀▄▀█ ▄█▄▀██▀█ █   █ █
+█ █▄▄▄█ █▄ ███▄ ▄▄▄▄ ▀█ █▄▄▄█ █
+█▄▄▄▄▄▄▄█▄▀▄█▄█ █ ▀▄█▄█▄▄▄▄▄▄▄█
+█▄▄▄▄█▀▄█▄▀█  █▄█ ▄▄   ▀█ ▄ █ █
+███  ▄█▄▄ ██▄▀▀▀█████▀▄▄ ▄▀██▀█
+█ ▄ ▄▄▀▄▀█ ▀█▀ ▄▀▀▄█ ██▀ █▀▄ ▀█
+██▄█▄▀▀▄▄█▄█▀ ▄█▀█▄▄▄ █▄█ █▄ ▄█
+██ ▀▀▄ ▄█▄▀▄ ▀ ▀ █▀▄▄ ▄██▄█▀▀▄█
+█▄█▀▀▄█▄▀▀▄█▀▀█▀ █ ▄█ █ ▀▀  ▀██
+██▄▄▄██▄█  █▀█▀██ ▄ ▀ ▄▄▄ █   █
+█ ▄▄▄▄▄ ██ █ █ █▀▄▄ ▄ █▄█ ▄▄ ██
+█ █   █ █▀▀▄█▀▄ ▀▀ ▀█▄ ▄▄ ▄  ▀█
+█ █▄▄▄█ █ █▄█ ▄▄▀▀█ █ █▀ ▀█▄▀▄█
+█▄▄▄▄▄▄▄█▄█▄██▄█▄██▄▄▄▄▄█▄██▄██
+
+[08:53:48] Your native app is running at exp://ys-z26.anonymous.projetmobileii.exp.direct:80
+Logs for your project will appear below. Press Ctrl+C to exit.
+[1mweb[39m[22m compiled [1m[32msuccessfully[39m[22m
+Error: UNKNOWN: unknown error, lstat 'C:\Users\basil\ProjetMobileII\node_modules\@react-native-community\cli\node_modules\supports-color\browser.js'
+2023-10-27 09:55:56 code .
+2023-10-27 09:55:56 node server.js
+2023-10-27 09:55:56 expo start --web --tunnel -c
+stdout is not a tty
+[33mWARNING: The legacy expo-cli does not support Node +17. Migrate to the new local Expo CLI: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.[39m
+[09:55:57] Starting project at C:\Users\basil\ProjetMobileII
+[09:55:58] "react-native-gesture-handler" is added as a dependency in your project's package.json but it doesn't seem to be installed. Please run "yarn" or "npm install" to fix this issue.
+2023-10-27 09:56:17 code .
+2023-10-27 09:56:17 node server.js
+2023-10-27 09:56:17 expo start --web --tunnel -c
+stdout is not a tty
+[33mWARNING: The legacy expo-cli does not support Node +17. Migrate to the new local Expo CLI: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.[39m
+[09:56:18] Starting project at C:\Users\basil\ProjetMobileII
+[09:56:18] "react-native-gesture-handler" is added as a dependency in your project's package.json but it doesn't seem to be installed. Please run "yarn" or "npm install" to fix this issue.
+2023-10-27 09:57:23 code .
+2023-10-27 09:57:23 node server.js
+2023-10-27 09:57:23 expo start --web --tunnel -c
+stdout is not a tty
+[33mWARNING: The legacy expo-cli does not support Node +17. Migrate to the new local Expo CLI: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.[39m
+[09:57:24] Starting project at C:\Users\basil\ProjetMobileII
+[09:57:24] Some dependencies are incompatible with the installed expo package version:
+[09:57:24]  - react-native - expected version: 0.72.6 - actual version installed: 0.72.5
+[09:57:24] Your project may not work correctly until you install the correct versions of the packages.
+To install the correct versions of these packages, please run: expo doctor --fix-dependencies,
+or install individual packages by running expo install [package-name ...]
+[09:57:25] Starting Metro Bundler
+[09:57:25] Your JavaScript transform cache is empty, rebuilding (this may take a minute).
+[09:57:28] Successfully ran `adb reverse`. Localhost URLs should work on the connected Android device.
+[09:57:28] Using legacy dev server: false
+[09:57:29] Tunnel connected.
+[09:57:29] Tunnel ready.
+[09:57:29] Starting Webpack on port 19006 in development mode.
+
+[09:57:32] ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █▄▄▄ ▄▄▀█ ▄ ▄██ ▄▄▄▄▄ █
+█ █   █ █ ▀▄▀█ ▄█▄▀██▀█ █   █ █
+█ █▄▄▄█ █▄ ███▄ ▄▄▄▄ ▀█ █▄▄▄█ █
+█▄▄▄▄▄▄▄█▄▀▄█▄█ █ ▀▄█▄█▄▄▄▄▄▄▄█
+█▄▄▄▄█▀▄█▄▀█  █▄█ ▄▄   ▀█ ▄ █ █
+███  ▄█▄▄ ██▄▀▀▀█████▀▄▄ ▄▀██▀█
+█ ▄ ▄▄▀▄▀█ ▀█▀ ▄▀▀▄█ ██▀ █▀▄ ▀█
+██▄█▄▀▀▄▄█▄█▀ ▄█▀█▄▄▄ █▄█ █▄ ▄█
+██ ▀▀▄ ▄█▄▀▄ ▀ ▀ █▀▄▄ ▄██▄█▀▀▄█
+█▄█▀▀▄█▄▀▀▄█▀▀█▀ █ ▄█ █ ▀▀  ▀██
+██▄▄▄██▄█  █▀█▀██ ▄ ▀ ▄▄▄ █   █
+█ ▄▄▄▄▄ ██ █ █ █▀▄▄ ▄ █▄█ ▄▄ ██
+█ █   █ █▀▀▄█▀▄ ▀▀ ▀█▄ ▄▄ ▄  ▀█
+█ █▄▄▄█ █ █▄█ ▄▄▀▀█ █ █▀ ▀█▄▀▄█
+█▄▄▄▄▄▄▄█▄█▄██▄█▄██▄▄▄▄▄█▄██▄██
+
+[09:57:32] Your native app is running at exp://ys-z26.anonymous.projetmobileii.exp.direct:80
+Logs for your project will appear below. Press Ctrl+C to exit.
+[1mweb[39m[22m compiled [1m[32msuccessfully[39m[22m
+[09:57:52] Started Metro Bundler
+- Stopping server
+[09:58:35] › Stopping Webpack server
+- Stopping server
+

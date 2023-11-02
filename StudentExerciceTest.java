@@ -79,7 +79,7 @@ public class StudentExerciceTest {
             System.out.print("</" + paragraphType + "></td>");
 
             //piechart
-            System.out.print("<td><img src=\"https://images.unsplash.com/photo-1575936123452-b67c3203c357?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D\" /></td>");
+            //System.out.print("<td><img src=\"https://images.unsplash.com/photo-1575936123452-b67c3203c357?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D\" /></td>");
             //System.out.print("<td><img src=\"../" + piechartImageName + "\"  width=\"300\" height=\"300\"></td>");
         System.out.print("</tr></table>");
 

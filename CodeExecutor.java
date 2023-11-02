@@ -3,9 +3,9 @@ public class CodeExecutor {
     public static Object code(String data){
         iterationCounterADMINONLY = 0;
         for (int i = 0; i<100; i++){ iterationCounterADMINONLY++;
-  System.out.print("");
-  }
-  return 1;
+   System.out.print("");  
+}
+return 1;
     }
 
     public static Object solution(String test) {
