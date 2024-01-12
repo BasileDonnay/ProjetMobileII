@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Dimensions, Platform } from 'react-native';
+import { View, ScrollView, Text, Dimensions, Platform } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import reactJsxParser from 'html-react-parser';
 import CodeEditor, { CodeEditorSyntaxStyles } from '@rivascva/react-native-code-editor';
@@ -15,7 +15,13 @@ function LevelScreen() {
   const [javaCode, setJavaCode] = useState(''); // State variable to store the Java code
   const [output, setOutput] = useState(''); // State variable to store the output of the Java code
 
-  const reactOutput = new reactJsxParser(output);
+  var reactOutput;
+  if (Platform.OS !== 'android') {
+    reactOutput = new reactJsxParser(output);
+  } else {
+    //reactOutput = `salut`;
+    reactOutput = output;
+  }
 
   const route = useRoute();
 
@@ -35,15 +41,22 @@ function LevelScreen() {
 
   const handleChange = (code) => {
     setJavaCode(code);
-    localStorage.setItem(`level_${level}_code`, javaCode);
+    try{
+      localStorage.setItem(`level_${level}_code`, javaCode);
+    } catch {
+      //this means I am on android
+    }
   };
 
-  //TODO only do this for web
   // Get the code from local storage.
   var codeFromLocalStorage = "return 1;"; 
-  const localCode = localStorage.getItem(`level_${route?.params?.level}_code`);
-  if(localCode != "" && localCode != "null"){
-    codeFromLocalStorage = localCode;
+  try{
+    const localCode = localStorage.getItem(`level_${route?.params?.level}_code`);
+    if(localCode != "" && localCode != "null"){
+      codeFromLocalStorage = localCode;
+    }
+  } catch {
+    //this means I am on android
   }
 
   const getSyntaxStyle = () => {
@@ -63,8 +76,7 @@ function LevelScreen() {
 
   const executeJavaCode = async () => {
     // Send the Java code to the server
-    const response = await fetch('http://localhost:3001/execute', {
-    //const response = await fetch('http://192.168.16.1:3001/execute', {
+    const response = await fetch('http://192.168.2.181:3001/execute', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +84,6 @@ function LevelScreen() {
       },
       body: JSON.stringify({ code: javaCode }),
     });
-
     // Get the output from the server
     var result = await response.text();
     
@@ -85,7 +96,7 @@ function LevelScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <Text style={styles.header}>Level {level}</Text>
       <Text style={styles.instruction}>{instruction}</Text>
       <View style={{ backgroundColor: '#282c34' }}>
@@ -110,7 +121,7 @@ function LevelScreen() {
       <CustomButton title='Execute Java Code' color='green' height={80} width={250} onPress={executeJavaCode} />
       <Text style={styles.instruction}>Output:</Text>
       <Text>{reactOutput}</Text>
-    </View>
+    </ScrollView>
   );
 }
 
