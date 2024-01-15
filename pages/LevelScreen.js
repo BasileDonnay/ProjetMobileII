@@ -76,7 +76,9 @@ function LevelScreen() {
 
   const executeJavaCode = async () => {
     // Send the Java code to the server
-    const response = await fetch('http://192.168.2.181:3001/execute', {
+    //const response = await fetch('http://192.168.2.181:3001/execute', {
+    //const response = await fetch('http://192.168.43.97:3001/execute', {
+    const response = await fetch('http://172.26.100.39:3001/execute', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
